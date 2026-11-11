@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# the skills write your live trading state here
+trader/
