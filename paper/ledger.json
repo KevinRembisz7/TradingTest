@@ -1,0 +1,18 @@
+{
+  "start": 500.0,
+  "equity": 500.0,
+  "open": {
+    "date": "2026-11-11",
+    "symbol": "AXTI",
+    "qty": 4,
+    "fill": 46.75,
+    "fill_time": "10:27",
+    "stop": 44.3,
+    "target": 51.65,
+    "max_loss": 9.8,
+    "or_high": 45.77,
+    "or_low": 42.84,
+    "skipped": []
+  },
+  "days": []
+}
