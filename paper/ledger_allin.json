@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 499.0,
-  "open": null,
+  "open": {
+    "date": "2026-11-12",
+    "symbol": "CDNS",
+    "qty": 1,
+    "fill": 329.47,
+    "fill_time": "10:28",
+    "stop": 326.81,
+    "target": 334.79,
+    "max_loss": 2.66,
+    "or_high": 329.27,
+    "or_low": 324.35
+  },
   "days": [
     {
       "date": "2026-11-11",
