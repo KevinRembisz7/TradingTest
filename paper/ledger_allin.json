@@ -1,0 +1,25 @@
+{
+  "start": 500,
+  "equity": 499.0,
+  "open": null,
+  "days": [
+    {
+      "date": "2026-11-11",
+      "symbol": "AXTI",
+      "qty": 10,
+      "fill": 46.75,
+      "fill_time": "10:27",
+      "stop": 44.3,
+      "target": 51.65,
+      "max_loss": 24.5,
+      "or_high": 45.77,
+      "or_low": 42.84,
+      "exit": 46.65,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": -1.0,
+      "ret_pct": -0.2,
+      "equity": 499.0
+    }
+  ]
+}

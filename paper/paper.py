@@ -35,6 +35,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SK = os.path.join(ROOT, ".claude", "skills")
 TR = os.path.join(ROOT, "trader")
 LEDGER = os.path.join(ROOT, "paper", "ledger.json")
+LEDGER_ALLIN = os.path.join(ROOT, "paper", "ledger_allin.json")
 START = 500.0
 SLIP = 0.01
 MAX_TRIES = 30
@@ -55,15 +56,24 @@ def now_ny():
     return datetime.now(NY)
 
 
-def load_ledger():
-    if os.path.exists(LEDGER):
-        with open(LEDGER) as f:
+def load_ledger(path=LEDGER):
+    if os.path.exists(path):
+        with open(path) as f:
             return json.load(f)
     return {"start": START, "equity": START, "open": None, "days": []}
 
 
-def save_ledger(led):
-    with open(LEDGER, "w") as f:
+def no_trade_allin(today, note):
+    """The ALL-IN portfolio skips the day whenever SAFE does (same trade, other size)."""
+    a = load_ledger(LEDGER_ALLIN)
+    if not any(d["date"] == today for d in a["days"]):
+        a["days"].append({"date": today, "symbol": None, "pnl": 0.0,
+                          "equity": round(a["equity"], 2), "note": note})
+        save_ledger(a, LEDGER_ALLIN)
+
+
+def save_ledger(led, path=LEDGER):
+    with open(path, "w") as f:
         json.dump(led, f, indent=2)
         f.write("\n")
 
@@ -114,6 +124,7 @@ def entry():
         led["days"].append({"date": today, "symbol": None, "pnl": 0.0,
                             "equity": round(led["equity"], 2), "note": out.strip()[-200:]})
         save_ledger(led)
+        no_trade_allin(today, "scanner found nothing")
         return 0
     with open(os.path.join(TR, "watchlist.json")) as f:
         hits = json.load(f)["hits"]
@@ -164,6 +175,15 @@ def entry():
                        "max_loss": r["max_loss"], "or_high": h["or_high"],
                        "or_low": h["or_low"], "skipped": tried}
         save_ledger(led)
+        a = load_ledger(LEDGER_ALLIN)
+        qa = int(a["equity"] // fill)
+        if qa >= 1 and not a["open"]:
+            a["open"] = dict(led["open"], qty=qa,
+                             max_loss=round((fill - led["open"]["stop"]) * qa, 2))
+            a["open"].pop("skipped", None)
+            save_ledger(a, LEDGER_ALLIN)
+            print("ALL-IN: same trade, %d shares ($%.2f), max loss at the stop $%.2f"
+                  % (qa, qa * fill, a["open"]["max_loss"]))
         print("PAPER BUY %d %s @ %.2f at %s ET | stop %.2f | target %.2f | max loss $%.2f"
               % (qty, sym, fill, t.strftime("%H:%M"), led["open"]["stop"],
                  led["open"]["target"], r["max_loss"]))
@@ -180,6 +200,7 @@ def entry():
     led["days"].append({"date": today, "symbol": None, "pnl": 0.0,
                         "equity": round(led["equity"], 2), "note": "nothing passed"})
     save_ledger(led)
+    no_trade_allin(today, "nothing passed")
     return 0
 
 
@@ -220,6 +241,19 @@ def settle():
             return 1
         exit_px, how, when = bars[-1]["c"] - SLIP, "flat at the last bar", bars[-1]["t"].strftime("%H:%M")
     exit_px = round(exit_px, 2)
+    a = load_ledger(LEDGER_ALLIN)
+    if a["open"] and a["open"]["date"] == pos["date"] and a["open"]["symbol"] == pos["symbol"]:
+        ap = a["open"]
+        apnl = round((exit_px - ap["fill"]) * ap["qty"], 2)
+        ab = a["equity"]
+        a["equity"] = round(ab + apnl, 2)
+        aday = dict(ap, exit=exit_px, exit_how=how, exit_time=when, pnl=apnl,
+                    ret_pct=round(apnl / ab * 100, 2), equity=a["equity"])
+        a["days"].append(aday)
+        a["open"] = None
+        save_ledger(a, LEDGER_ALLIN)
+        print("ALL-IN SETTLED %s: %d shares, P&L $%+.2f (%+.2f%%), account $%.2f"
+              % (ap["symbol"], ap["qty"], apnl, aday["ret_pct"], a["equity"]))
     pnl = round((exit_px - pos["fill"]) * pos["qty"], 2)
     before = led["equity"]
     led["equity"] = round(before + pnl, 2)
@@ -236,7 +270,14 @@ def settle():
 
 
 def report():
-    led = load_ledger()
+    for name, path in (("SAFE (2% risk a trade)", LEDGER), ("ALL-IN (every dollar)", LEDGER_ALLIN)):
+        print("== " + name)
+        report_one(load_ledger(path))
+        print()
+    return 0
+
+
+def report_one(led):
     print("Paper account, start $%.2f, now $%.2f (%+.2f%% total)"
           % (led["start"], led["equity"], (led["equity"] / led["start"] - 1) * 100))
     print("%-10s %-6s %5s %9s %9s  %-24s %9s %8s %10s" %
@@ -253,7 +294,6 @@ def report():
         p = led["open"]
         print("OPEN: %d %s @ %.2f, stop %.2f, target %.2f" %
               (p["qty"], p["symbol"], p["fill"], p["stop"], p["target"]))
-    return 0
 
 
 if __name__ == "__main__":
