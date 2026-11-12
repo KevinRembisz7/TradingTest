@@ -1,18 +1,7 @@
 {
   "start": 500,
-  "equity": 499.0,
-  "open": {
-    "date": "2026-11-12",
-    "symbol": "CDNS",
-    "qty": 1,
-    "fill": 329.47,
-    "fill_time": "10:28",
-    "stop": 326.81,
-    "target": 334.79,
-    "max_loss": 2.66,
-    "or_high": 329.27,
-    "or_low": 324.35
-  },
+  "equity": 502.21,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -31,6 +20,24 @@
       "pnl": -1.0,
       "ret_pct": -0.2,
       "equity": 499.0
+    },
+    {
+      "date": "2026-11-12",
+      "symbol": "CDNS",
+      "qty": 1,
+      "fill": 329.47,
+      "fill_time": "10:28",
+      "stop": 326.81,
+      "target": 334.79,
+      "max_loss": 2.66,
+      "or_high": 329.27,
+      "or_low": 324.35,
+      "exit": 332.68,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 3.21,
+      "ret_pct": 0.64,
+      "equity": 502.21
     }
   ]
 }
