@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 502.21,
-  "open": null,
+  "open": {
+    "date": "2026-11-13",
+    "symbol": "KR",
+    "qty": 7,
+    "fill": 70.74,
+    "fill_time": "11:03",
+    "stop": 70.04,
+    "target": 72.14,
+    "max_loss": 4.9,
+    "or_high": 70.5,
+    "or_low": 69.59
+  },
   "days": [
     {
       "date": "2026-11-11",
