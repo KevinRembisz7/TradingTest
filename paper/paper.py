@@ -36,6 +36,8 @@ SK = os.path.join(ROOT, ".claude", "skills")
 TR = os.path.join(ROOT, "trader")
 LEDGER = os.path.join(ROOT, "paper", "ledger.json")
 LEDGER_ALLIN = os.path.join(ROOT, "paper", "ledger_allin.json")
+LEDGER_MOON = os.path.join(ROOT, "paper", "ledger_moon.json")
+MOON_LEVERAGE = 2.0   # MOONSHOT buys 2x its account on simulated margin
 START = 500.0
 SLIP = 0.01
 MAX_TRIES = 30
@@ -70,6 +72,11 @@ def no_trade_allin(today, note):
         a["days"].append({"date": today, "symbol": None, "pnl": 0.0,
                           "equity": round(a["equity"], 2), "note": note})
         save_ledger(a, LEDGER_ALLIN)
+    m = load_ledger(LEDGER_MOON)
+    if not m["open"] and not any(d["date"] == today for d in m["days"]):
+        m["days"].append({"date": today, "symbol": None, "pnl": 0.0,
+                          "equity": round(m["equity"], 2), "note": note})
+        save_ledger(m, LEDGER_MOON)
 
 
 def save_ledger(led, path=LEDGER):
@@ -129,6 +136,7 @@ def entry():
     with open(os.path.join(TR, "watchlist.json")) as f:
         hits = json.load(f)["hits"]
     hits.sort(key=lambda h: h.get("bar_index", 0), reverse=True)
+    moon_entry(hits, today)
     tried = []
     for h in hits[:MAX_TRIES]:
         sym = h["symbol"]
@@ -204,12 +212,106 @@ def entry():
     return 0
 
 
+def moon_entry(hits, today):
+    """MOONSHOT: its own pick. The most volatile breakout (widest opening range %),
+    2x margin, stop at the range LOW, no target: ride it to 15:55. No risk check."""
+    m = load_ledger(LEDGER_MOON)
+    if m["open"] or any(d["date"] == today for d in m["days"]):
+        return
+    if m["equity"] <= 0:
+        print("MOONSHOT is busted (account at $0): no more trades.")
+        return
+    ranked = sorted(hits, key=lambda h: (h["or_high"] - h["or_low"]) / h["or_low"], reverse=True)
+    for h in ranked[:15]:
+        try:
+            live, _ = chart(h["symbol"])
+        except Exception:  # noqa: BLE001
+            continue
+        time.sleep(0.3)
+        if not live or live <= h["or_high"]:
+            continue
+        fill = round(live + SLIP, 2)
+        stop = int((h["or_low"] - 0.01) * 100) / 100.0
+        qty = int(m["equity"] * MOON_LEVERAGE // fill)
+        if qty < 1 or stop >= fill:
+            continue
+        t = now_ny()
+        m["open"] = {"date": today, "symbol": h["symbol"], "qty": qty, "fill": fill,
+                     "fill_time": t.strftime("%H:%M"), "stop": stop, "target": None,
+                     "max_loss": round((fill - stop) * qty, 2), "or_high": h["or_high"],
+                     "or_low": h["or_low"], "leverage": MOON_LEVERAGE,
+                     "range_pct": round((h["or_high"] - h["or_low"]) / h["or_low"] * 100, 2)}
+        save_ledger(m, LEDGER_MOON)
+        print("MOONSHOT: %d %s @ %.2f ($%.2f on 2x margin) | range %.1f%% | stop %.2f | no target | max loss $%.2f"
+              % (qty, h["symbol"], fill, qty * fill, m["open"]["range_pct"], stop, m["open"]["max_loss"]))
+        return
+    m["days"].append({"date": today, "symbol": None, "pnl": 0.0,
+                      "equity": round(m["equity"], 2), "note": "nothing still above its range"})
+    save_ledger(m, LEDGER_MOON)
+    print("MOONSHOT: no breakout still above its range: no trade.")
+
+
+def simulate(pos):
+    """Walk the day's 5-minute bars after the fill: stop, target (if any), or 15:55.
+    Returns (exit_px, how, when), or None if the session is not finished."""
+    _, bars = chart(pos["symbol"])
+    bars = [b for b in bars if b["t"].strftime("%Y-%m-%d") == pos["date"]]
+    hh, mm = map(int, pos["fill_time"].split(":"))
+    start_min = (hh * 60 + mm) // 5 * 5
+    tgt = pos.get("target")
+    for b in bars:
+        m = b["t"].hour * 60 + b["t"].minute
+        if m < start_min:
+            continue
+        if m >= 15 * 60 + 55:
+            break
+        if b["o"] <= pos["stop"]:
+            return round(b["o"] - SLIP, 2), "gapped through the stop", b["t"].strftime("%H:%M")
+        if b["l"] <= pos["stop"]:
+            return round(pos["stop"] - SLIP, 2), "stop", b["t"].strftime("%H:%M")
+        if tgt is not None and b["o"] >= tgt:
+            return round(b["o"], 2), "gapped through the target", b["t"].strftime("%H:%M")
+        if tgt is not None and b["h"] >= tgt:
+            return round(tgt, 2), "target", b["t"].strftime("%H:%M")
+        if m == 15 * 60 + 50:
+            return round(b["c"] - SLIP, 2), "flat by 15:55", "15:55"
+    if not bars or now_ny().strftime("%H:%M") < "16:00":
+        return None
+    return round(bars[-1]["c"] - SLIP, 2), "flat at the last bar", bars[-1]["t"].strftime("%H:%M")
+
+
+def moon_settle():
+    m = load_ledger(LEDGER_MOON)
+    pos = m["open"]
+    if not pos:
+        return 0
+    res = simulate(pos)
+    if res is None:
+        print("MOONSHOT: session not finished, try after 4:00 PM ET.")
+        return 1
+    exit_px, how, when = res
+    pnl = round((exit_px - pos["fill"]) * pos["qty"], 2)
+    before = m["equity"]
+    pnl = max(pnl, -before)  # a margin account can't go below $0 here: busted
+    m["equity"] = round(before + pnl, 2)
+    day = dict(pos, exit=exit_px, exit_how=how, exit_time=when, pnl=pnl,
+               ret_pct=round(pnl / before * 100, 2), equity=m["equity"])
+    m["days"].append(day)
+    m["open"] = None
+    save_ledger(m, LEDGER_MOON)
+    print("MOONSHOT SETTLED %s: %d @ %.2f -> %.2f (%s at %s) P&L $%+.2f (%+.2f%%), account $%.2f"
+          % (pos["symbol"], pos["qty"], pos["fill"], exit_px, how, when, pnl,
+             day["ret_pct"], m["equity"]))
+    return 0
+
+
 def settle():
+    moon_rc = moon_settle()
     led = load_ledger()
     pos = led["open"]
     if not pos:
         print("No open paper trade to settle.")
-        return 0
+        return moon_rc
     _, bars = chart(pos["symbol"])
     bars = [b for b in bars if b["t"].strftime("%Y-%m-%d") == pos["date"]]
     hh, mm = map(int, pos["fill_time"].split(":"))
@@ -270,7 +372,8 @@ def settle():
 
 
 def report():
-    for name, path in (("SAFE (2% risk a trade)", LEDGER), ("ALL-IN (every dollar)", LEDGER_ALLIN)):
+    for name, path in (("SAFE (2% risk a trade)", LEDGER), ("ALL-IN (every dollar)", LEDGER_ALLIN),
+                       ("MOONSHOT (most volatile pick, 2x margin, no target)", LEDGER_MOON)):
         print("== " + name)
         report_one(load_ledger(path))
         print()
@@ -292,8 +395,9 @@ def report_one(led):
                   (d["date"], "-", "-", "-", "-", "no trade", 0, 0, d["equity"]))
     if led["open"]:
         p = led["open"]
-        print("OPEN: %d %s @ %.2f, stop %.2f, target %.2f" %
-              (p["qty"], p["symbol"], p["fill"], p["stop"], p["target"]))
+        print("OPEN: %d %s @ %.2f, stop %.2f, target %s" %
+              (p["qty"], p["symbol"], p["fill"], p["stop"],
+               "none" if p.get("target") is None else "%.2f" % p["target"]))
 
 
 if __name__ == "__main__":
