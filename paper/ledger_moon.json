@@ -1,19 +1,27 @@
 {
   "start": 500,
-  "equity": 500,
-  "open": {
-    "date": "2026-11-16",
-    "symbol": "MOH",
-    "qty": 4,
-    "fill": 225.29,
-    "fill_time": "10:28",
-    "stop": 213.16,
-    "target": null,
-    "max_loss": 48.52,
-    "or_high": 223.75,
-    "or_low": 213.17,
-    "leverage": 2.0,
-    "range_pct": 4.96
-  },
-  "days": []
+  "equity": 529.32,
+  "open": null,
+  "days": [
+    {
+      "date": "2026-11-16",
+      "symbol": "MOH",
+      "qty": 4,
+      "fill": 225.29,
+      "fill_time": "10:28",
+      "stop": 213.16,
+      "target": null,
+      "max_loss": 48.52,
+      "or_high": 223.75,
+      "or_low": 213.17,
+      "leverage": 2.0,
+      "range_pct": 4.96,
+      "exit": 232.62,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 29.32,
+      "ret_pct": 5.86,
+      "equity": 529.32
+    }
+  ]
 }

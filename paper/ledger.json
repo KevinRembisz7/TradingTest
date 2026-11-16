@@ -1,19 +1,7 @@
 {
   "start": 500.0,
-  "equity": 504.13,
-  "open": {
-    "date": "2026-11-16",
-    "symbol": "AJG",
-    "qty": 1,
-    "fill": 289.44,
-    "fill_time": "10:28",
-    "stop": 286.79,
-    "target": 294.74,
-    "max_loss": 2.65,
-    "or_high": 288.85,
-    "or_low": 284.73,
-    "skipped": []
-  },
+  "equity": 501.47,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -68,6 +56,24 @@
       "pnl": 1.32,
       "ret_pct": 0.26,
       "equity": 504.13
+    },
+    {
+      "date": "2026-11-16",
+      "symbol": "AJG",
+      "qty": 1,
+      "fill": 289.44,
+      "fill_time": "10:28",
+      "stop": 286.79,
+      "target": 294.74,
+      "max_loss": 2.65,
+      "or_high": 288.85,
+      "or_low": 284.73,
+      "exit": 286.78,
+      "exit_how": "stop",
+      "exit_time": "11:45",
+      "pnl": -2.66,
+      "ret_pct": -0.53,
+      "equity": 501.47
     }
   ]
 }
