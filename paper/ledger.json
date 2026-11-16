@@ -1,7 +1,19 @@
 {
   "start": 500.0,
   "equity": 504.13,
-  "open": null,
+  "open": {
+    "date": "2026-11-16",
+    "symbol": "AJG",
+    "qty": 1,
+    "fill": 289.44,
+    "fill_time": "10:28",
+    "stop": 286.79,
+    "target": 294.74,
+    "max_loss": 2.65,
+    "or_high": 288.85,
+    "or_low": 284.73,
+    "skipped": []
+  },
   "days": [
     {
       "date": "2026-11-11",
