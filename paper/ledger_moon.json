@@ -1,7 +1,20 @@
 {
   "start": 500,
   "equity": 529.32,
-  "open": null,
+  "open": {
+    "date": "2026-11-17",
+    "symbol": "SNAP",
+    "qty": 193,
+    "fill": 5.48,
+    "fill_time": "10:27",
+    "stop": 5.06,
+    "target": null,
+    "max_loss": 81.06,
+    "or_high": 5.36,
+    "or_low": 5.07,
+    "leverage": 2.0,
+    "range_pct": 5.72
+  },
   "days": [
     {
       "date": "2026-11-16",

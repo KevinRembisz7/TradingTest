@@ -1,7 +1,21 @@
 {
   "start": 500.0,
   "equity": 501.47,
-  "open": null,
+  "open": {
+    "date": "2026-11-17",
+    "symbol": "PYPL",
+    "qty": 7,
+    "fill": 59.06,
+    "fill_time": "10:27",
+    "stop": 58.62,
+    "target": 59.94,
+    "max_loss": 3.08,
+    "or_high": 58.88,
+    "or_low": 58.37,
+    "skipped": [
+      "STZ: back under its range high"
+    ]
+  },
   "days": [
     {
       "date": "2026-11-11",

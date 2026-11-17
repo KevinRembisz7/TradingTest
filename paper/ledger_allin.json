@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 501.09,
-  "open": null,
+  "open": {
+    "date": "2026-11-17",
+    "symbol": "PYPL",
+    "qty": 8,
+    "fill": 59.06,
+    "fill_time": "10:27",
+    "stop": 58.62,
+    "target": 59.94,
+    "max_loss": 3.52,
+    "or_high": 58.88,
+    "or_low": 58.37
+  },
   "days": [
     {
       "date": "2026-11-11",
