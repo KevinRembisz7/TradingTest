@@ -1,21 +1,7 @@
 {
   "start": 500.0,
-  "equity": 501.47,
-  "open": {
-    "date": "2026-11-17",
-    "symbol": "PYPL",
-    "qty": 7,
-    "fill": 59.06,
-    "fill_time": "10:27",
-    "stop": 58.62,
-    "target": 59.94,
-    "max_loss": 3.08,
-    "or_high": 58.88,
-    "or_low": 58.37,
-    "skipped": [
-      "STZ: back under its range high"
-    ]
-  },
+  "equity": 498.32,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -88,6 +74,24 @@
       "pnl": -2.66,
       "ret_pct": -0.53,
       "equity": 501.47
+    },
+    {
+      "date": "2026-11-17",
+      "symbol": "PYPL",
+      "qty": 7,
+      "fill": 59.06,
+      "fill_time": "10:27",
+      "stop": 58.62,
+      "target": 59.94,
+      "max_loss": 3.08,
+      "or_high": 58.88,
+      "or_low": 58.37,
+      "exit": 58.61,
+      "exit_how": "stop",
+      "exit_time": "10:40",
+      "pnl": -3.15,
+      "ret_pct": -0.63,
+      "equity": 498.32
     }
   ]
 }
