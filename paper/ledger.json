@@ -1,19 +1,7 @@
 {
   "start": 500.0,
-  "equity": 498.32,
-  "open": {
-    "date": "2026-11-18",
-    "symbol": "AVGO",
-    "qty": 1,
-    "fill": 354.01,
-    "fill_time": "10:27",
-    "stop": 346.96,
-    "target": 368.11,
-    "max_loss": 7.05,
-    "or_high": 351.88,
-    "or_low": 342.04,
-    "skipped": []
-  },
+  "equity": 491.26,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -104,6 +92,24 @@
       "pnl": -3.15,
       "ret_pct": -0.63,
       "equity": 498.32
+    },
+    {
+      "date": "2026-11-18",
+      "symbol": "AVGO",
+      "qty": 1,
+      "fill": 354.01,
+      "fill_time": "10:27",
+      "stop": 346.96,
+      "target": 368.11,
+      "max_loss": 7.05,
+      "or_high": 351.88,
+      "or_low": 342.04,
+      "exit": 346.95,
+      "exit_how": "stop",
+      "exit_time": "11:50",
+      "pnl": -7.06,
+      "ret_pct": -1.42,
+      "equity": 491.26
     }
   ]
 }

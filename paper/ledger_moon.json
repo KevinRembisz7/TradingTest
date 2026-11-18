@@ -1,20 +1,7 @@
 {
   "start": 500,
-  "equity": 527.39,
-  "open": {
-    "date": "2026-11-18",
-    "symbol": "CLRO",
-    "qty": 147,
-    "fill": 7.13,
-    "fill_time": "10:27",
-    "stop": 5.34,
-    "target": null,
-    "max_loss": 263.13,
-    "or_high": 5.9,
-    "or_low": 5.35,
-    "leverage": 2.0,
-    "range_pct": 10.28
-  },
+  "equity": 528.86,
+  "open": null,
   "days": [
     {
       "date": "2026-11-16",
@@ -55,6 +42,26 @@
       "pnl": -1.93,
       "ret_pct": -0.36,
       "equity": 527.39
+    },
+    {
+      "date": "2026-11-18",
+      "symbol": "CLRO",
+      "qty": 147,
+      "fill": 7.13,
+      "fill_time": "10:27",
+      "stop": 5.34,
+      "target": null,
+      "max_loss": 263.13,
+      "or_high": 5.9,
+      "or_low": 5.35,
+      "leverage": 2.0,
+      "range_pct": 10.28,
+      "exit": 7.14,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 1.47,
+      "ret_pct": 0.28,
+      "equity": 528.86
     }
   ]
 }
