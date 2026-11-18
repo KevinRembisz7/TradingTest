@@ -1,7 +1,19 @@
 {
   "start": 500.0,
   "equity": 498.32,
-  "open": null,
+  "open": {
+    "date": "2026-11-18",
+    "symbol": "AVGO",
+    "qty": 1,
+    "fill": 354.01,
+    "fill_time": "10:27",
+    "stop": 346.96,
+    "target": 368.11,
+    "max_loss": 7.05,
+    "or_high": 351.88,
+    "or_low": 342.04,
+    "skipped": []
+  },
   "days": [
     {
       "date": "2026-11-11",
