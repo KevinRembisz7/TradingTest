@@ -1,7 +1,20 @@
 {
   "start": 500,
   "equity": 528.86,
-  "open": null,
+  "open": {
+    "date": "2026-11-19",
+    "symbol": "VVV",
+    "qty": 28,
+    "fill": 36.78,
+    "fill_time": "10:27",
+    "stop": 33.68,
+    "target": null,
+    "max_loss": 86.8,
+    "or_high": 36.75,
+    "or_low": 33.69,
+    "leverage": 2.0,
+    "range_pct": 9.08
+  },
   "days": [
     {
       "date": "2026-11-16",

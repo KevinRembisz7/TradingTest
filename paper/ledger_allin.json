@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 490.43,
-  "open": null,
+  "open": {
+    "date": "2026-11-19",
+    "symbol": "PCG",
+    "qty": 35,
+    "fill": 13.8,
+    "fill_time": "10:27",
+    "stop": 13.69,
+    "target": 14.02,
+    "max_loss": 3.85,
+    "or_high": 13.77,
+    "or_low": 13.62
+  },
   "days": [
     {
       "date": "2026-11-11",
