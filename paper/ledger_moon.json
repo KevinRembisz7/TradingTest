@@ -1,20 +1,7 @@
 {
   "start": 500,
-  "equity": 528.86,
-  "open": {
-    "date": "2026-11-19",
-    "symbol": "VVV",
-    "qty": 28,
-    "fill": 36.78,
-    "fill_time": "10:27",
-    "stop": 33.68,
-    "target": null,
-    "max_loss": 86.8,
-    "or_high": 36.75,
-    "or_low": 33.69,
-    "leverage": 2.0,
-    "range_pct": 9.08
-  },
+  "equity": 521.58,
+  "open": null,
   "days": [
     {
       "date": "2026-11-16",
@@ -75,6 +62,26 @@
       "pnl": 1.47,
       "ret_pct": 0.28,
       "equity": 528.86
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "VVV",
+      "qty": 28,
+      "fill": 36.78,
+      "fill_time": "10:27",
+      "stop": 33.68,
+      "target": null,
+      "max_loss": 86.8,
+      "or_high": 36.75,
+      "or_low": 33.69,
+      "leverage": 2.0,
+      "range_pct": 9.08,
+      "exit": 36.52,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": -7.28,
+      "ret_pct": -1.38,
+      "equity": 521.58
     }
   ]
 }

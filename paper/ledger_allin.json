@@ -1,18 +1,7 @@
 {
   "start": 500,
-  "equity": 490.43,
-  "open": {
-    "date": "2026-11-19",
-    "symbol": "PCG",
-    "qty": 35,
-    "fill": 13.8,
-    "fill_time": "10:27",
-    "stop": 13.69,
-    "target": 14.02,
-    "max_loss": 3.85,
-    "or_high": 13.77,
-    "or_low": 13.62
-  },
+  "equity": 494.63,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -121,6 +110,24 @@
       "pnl": -7.06,
       "ret_pct": -1.42,
       "equity": 490.43
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "PCG",
+      "qty": 35,
+      "fill": 13.8,
+      "fill_time": "10:27",
+      "stop": 13.69,
+      "target": 14.02,
+      "max_loss": 3.85,
+      "or_high": 13.77,
+      "or_low": 13.62,
+      "exit": 13.92,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 4.2,
+      "ret_pct": 0.86,
+      "equity": 494.63
     }
   ]
 }
