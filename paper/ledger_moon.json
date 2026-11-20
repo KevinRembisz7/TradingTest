@@ -1,20 +1,7 @@
 {
   "start": 500,
-  "equity": 521.58,
-  "open": {
-    "date": "2026-11-20",
-    "symbol": "GAP",
-    "qty": 47,
-    "fill": 22.01,
-    "fill_time": "10:27",
-    "stop": 20.04,
-    "target": null,
-    "max_loss": 92.59,
-    "or_high": 21.72,
-    "or_low": 20.05,
-    "leverage": 2.0,
-    "range_pct": 8.33
-  },
+  "equity": 469.88,
+  "open": null,
   "days": [
     {
       "date": "2026-11-16",
@@ -95,6 +82,26 @@
       "pnl": -7.28,
       "ret_pct": -1.38,
       "equity": 521.58
+    },
+    {
+      "date": "2026-11-20",
+      "symbol": "GAP",
+      "qty": 47,
+      "fill": 22.01,
+      "fill_time": "10:27",
+      "stop": 20.04,
+      "target": null,
+      "max_loss": 92.59,
+      "or_high": 21.72,
+      "or_low": 20.05,
+      "leverage": 2.0,
+      "range_pct": 8.33,
+      "exit": 20.91,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": -51.7,
+      "ret_pct": -9.91,
+      "equity": 469.88
     }
   ]
 }

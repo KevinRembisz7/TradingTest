@@ -1,21 +1,7 @@
 {
   "start": 500.0,
-  "equity": 495.1,
-  "open": {
-    "date": "2026-11-20",
-    "symbol": "DUK",
-    "qty": 3,
-    "fill": 130.78,
-    "fill_time": "10:27",
-    "stop": 130.11,
-    "target": 132.12,
-    "max_loss": 2.01,
-    "or_high": 130.63,
-    "or_low": 129.6,
-    "skipped": [
-      "AZO: back under its range high"
-    ]
-  },
+  "equity": 493.06,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -142,6 +128,24 @@
       "pnl": 3.84,
       "ret_pct": 0.78,
       "equity": 495.1
+    },
+    {
+      "date": "2026-11-20",
+      "symbol": "DUK",
+      "qty": 3,
+      "fill": 130.78,
+      "fill_time": "10:27",
+      "stop": 130.11,
+      "target": 132.12,
+      "max_loss": 2.01,
+      "or_high": 130.63,
+      "or_low": 129.6,
+      "exit": 130.1,
+      "exit_how": "stop",
+      "exit_time": "14:40",
+      "pnl": -2.04,
+      "ret_pct": -0.41,
+      "equity": 493.06
     }
   ]
 }
