@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 494.63,
-  "open": null,
+  "open": {
+    "date": "2026-11-20",
+    "symbol": "DUK",
+    "qty": 3,
+    "fill": 130.78,
+    "fill_time": "10:27",
+    "stop": 130.11,
+    "target": 132.12,
+    "max_loss": 2.01,
+    "or_high": 130.63,
+    "or_low": 129.6
+  },
   "days": [
     {
       "date": "2026-11-11",

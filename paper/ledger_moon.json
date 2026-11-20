@@ -1,7 +1,20 @@
 {
   "start": 500,
   "equity": 521.58,
-  "open": null,
+  "open": {
+    "date": "2026-11-20",
+    "symbol": "GAP",
+    "qty": 47,
+    "fill": 22.01,
+    "fill_time": "10:27",
+    "stop": 20.04,
+    "target": null,
+    "max_loss": 92.59,
+    "or_high": 21.72,
+    "or_low": 20.05,
+    "leverage": 2.0,
+    "range_pct": 8.33
+  },
   "days": [
     {
       "date": "2026-11-16",
