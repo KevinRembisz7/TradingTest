@@ -1,18 +1,7 @@
 {
   "start": 500,
-  "equity": 492.59,
-  "open": {
-    "date": "2026-11-23",
-    "symbol": "APH",
-    "qty": 6,
-    "fill": 77.09,
-    "fill_time": "10:27",
-    "stop": 75.39,
-    "target": 80.49,
-    "max_loss": 10.2,
-    "or_high": 76.51,
-    "or_low": 74.27
-  },
+  "equity": 493.61,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -157,6 +146,24 @@
       "pnl": -2.04,
       "ret_pct": -0.41,
       "equity": 492.59
+    },
+    {
+      "date": "2026-11-23",
+      "symbol": "APH",
+      "qty": 6,
+      "fill": 77.09,
+      "fill_time": "10:27",
+      "stop": 75.39,
+      "target": 80.49,
+      "max_loss": 10.2,
+      "or_high": 76.51,
+      "or_low": 74.27,
+      "exit": 77.26,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 1.02,
+      "ret_pct": 0.21,
+      "equity": 493.61
     }
   ]
 }
