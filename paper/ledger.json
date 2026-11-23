@@ -1,7 +1,19 @@
 {
   "start": 500.0,
   "equity": 493.06,
-  "open": null,
+  "open": {
+    "date": "2026-11-23",
+    "symbol": "APH",
+    "qty": 5,
+    "fill": 77.09,
+    "fill_time": "10:27",
+    "stop": 75.39,
+    "target": 80.49,
+    "max_loss": 8.5,
+    "or_high": 76.51,
+    "or_low": 74.27,
+    "skipped": []
+  },
   "days": [
     {
       "date": "2026-11-11",

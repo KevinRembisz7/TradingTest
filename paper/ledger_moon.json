@@ -1,7 +1,20 @@
 {
   "start": 500,
   "equity": 469.88,
-  "open": null,
+  "open": {
+    "date": "2026-11-23",
+    "symbol": "BSP",
+    "qty": 19,
+    "fill": 47.31,
+    "fill_time": "10:27",
+    "stop": 43.12,
+    "target": null,
+    "max_loss": 79.61,
+    "or_high": 46.6,
+    "or_low": 43.13,
+    "leverage": 2.0,
+    "range_pct": 8.05
+  },
   "days": [
     {
       "date": "2026-11-16",
