@@ -1,21 +1,7 @@
 {
   "start": 500.0,
-  "equity": 493.91,
-  "open": {
-    "date": "2026-11-24",
-    "symbol": "AXON",
-    "qty": 1,
-    "fill": 306.39,
-    "fill_time": "10:27",
-    "stop": 302.44,
-    "target": 314.29,
-    "max_loss": 3.95,
-    "or_high": 305.0,
-    "or_low": 299.89,
-    "skipped": [
-      "AAOI: back under its range high"
-    ]
-  },
+  "equity": 501.81,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -178,6 +164,24 @@
       "pnl": 0.85,
       "ret_pct": 0.17,
       "equity": 493.91
+    },
+    {
+      "date": "2026-11-24",
+      "symbol": "AXON",
+      "qty": 1,
+      "fill": 306.39,
+      "fill_time": "10:27",
+      "stop": 302.44,
+      "target": 314.29,
+      "max_loss": 3.95,
+      "or_high": 305.0,
+      "or_low": 299.89,
+      "exit": 314.29,
+      "exit_how": "target",
+      "exit_time": "10:55",
+      "pnl": 7.9,
+      "ret_pct": 1.6,
+      "equity": 501.81
     }
   ]
 }
