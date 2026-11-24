@@ -1,7 +1,18 @@
 {
   "start": 500,
   "equity": 493.61,
-  "open": null,
+  "open": {
+    "date": "2026-11-24",
+    "symbol": "AXON",
+    "qty": 1,
+    "fill": 306.39,
+    "fill_time": "10:27",
+    "stop": 302.44,
+    "target": 314.29,
+    "max_loss": 3.95,
+    "or_high": 305.0,
+    "or_low": 299.89
+  },
   "days": [
     {
       "date": "2026-11-11",
