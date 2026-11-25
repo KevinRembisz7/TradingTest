@@ -1,18 +1,7 @@
 {
   "start": 500,
-  "equity": 501.51,
-  "open": {
-    "date": "2026-11-25",
-    "symbol": "UNP",
-    "qty": 1,
-    "fill": 289.83,
-    "fill_time": "10:27",
-    "stop": 288.62,
-    "target": 292.25,
-    "max_loss": 1.21,
-    "or_high": 289.45,
-    "or_low": 287.8
-  },
+  "equity": 503.93,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -193,6 +182,24 @@
       "pnl": 7.9,
       "ret_pct": 1.6,
       "equity": 501.51
+    },
+    {
+      "date": "2026-11-25",
+      "symbol": "UNP",
+      "qty": 1,
+      "fill": 289.83,
+      "fill_time": "10:27",
+      "stop": 288.62,
+      "target": 292.25,
+      "max_loss": 1.21,
+      "or_high": 289.45,
+      "or_low": 287.8,
+      "exit": 292.25,
+      "exit_how": "target",
+      "exit_time": "12:00",
+      "pnl": 2.42,
+      "ret_pct": 0.48,
+      "equity": 503.93
     }
   ]
 }

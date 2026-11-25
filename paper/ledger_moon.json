@@ -1,20 +1,7 @@
 {
   "start": 500,
-  "equity": 433.84,
-  "open": {
-    "date": "2026-11-25",
-    "symbol": "AMBA",
-    "qty": 24,
-    "fill": 34.94,
-    "fill_time": "10:27",
-    "stop": 30.49,
-    "target": null,
-    "max_loss": 106.8,
-    "or_high": 34.82,
-    "or_low": 30.5,
-    "leverage": 2.0,
-    "range_pct": 14.16
-  },
+  "equity": 455.68,
+  "open": null,
   "days": [
     {
       "date": "2026-11-16",
@@ -155,6 +142,26 @@
       "pnl": -31.1,
       "ret_pct": -6.69,
       "equity": 433.84
+    },
+    {
+      "date": "2026-11-25",
+      "symbol": "AMBA",
+      "qty": 24,
+      "fill": 34.94,
+      "fill_time": "10:27",
+      "stop": 30.49,
+      "target": null,
+      "max_loss": 106.8,
+      "or_high": 34.82,
+      "or_low": 30.5,
+      "leverage": 2.0,
+      "range_pct": 14.16,
+      "exit": 35.85,
+      "exit_how": "flat by 15:55",
+      "exit_time": "15:55",
+      "pnl": 21.84,
+      "ret_pct": 5.03,
+      "equity": 455.68
     }
   ]
 }
