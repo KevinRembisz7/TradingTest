@@ -1,7 +1,22 @@
 {
   "start": 500.0,
   "equity": 501.81,
-  "open": null,
+  "open": {
+    "date": "2026-11-25",
+    "symbol": "UNP",
+    "qty": 1,
+    "fill": 289.83,
+    "fill_time": "10:27",
+    "stop": 288.62,
+    "target": 292.25,
+    "max_loss": 1.21,
+    "or_high": 289.45,
+    "or_low": 287.8,
+    "skipped": [
+      "APP: back under its range high",
+      "T: back under its range high"
+    ]
+  },
   "days": [
     {
       "date": "2026-11-11",
