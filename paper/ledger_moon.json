@@ -1,20 +1,7 @@
 {
   "start": 500,
-  "equity": 455.68,
-  "open": {
-    "date": "2026-11-27",
-    "symbol": "ANF",
-    "qty": 4,
-    "fill": 184.61,
-    "fill_time": "10:27",
-    "stop": 173.54,
-    "target": null,
-    "max_loss": 44.28,
-    "or_high": 183.75,
-    "or_low": 173.55,
-    "leverage": 2.0,
-    "range_pct": 5.88
-  },
+  "equity": 454.92,
+  "open": null,
   "days": [
     {
       "date": "2026-11-16",
@@ -175,6 +162,26 @@
       "pnl": 21.84,
       "ret_pct": 5.03,
       "equity": 455.68
+    },
+    {
+      "date": "2026-11-27",
+      "symbol": "ANF",
+      "qty": 4,
+      "fill": 184.61,
+      "fill_time": "10:27",
+      "stop": 173.54,
+      "target": null,
+      "max_loss": 44.28,
+      "or_high": 183.75,
+      "or_low": 173.55,
+      "leverage": 2.0,
+      "range_pct": 5.88,
+      "exit": 184.42,
+      "exit_how": "flat at the last bar",
+      "exit_time": "13:00",
+      "pnl": -0.76,
+      "ret_pct": -0.17,
+      "equity": 454.92
     }
   ]
 }

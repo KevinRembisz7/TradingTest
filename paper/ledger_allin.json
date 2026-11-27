@@ -1,18 +1,7 @@
 {
   "start": 500,
-  "equity": 503.93,
-  "open": {
-    "date": "2026-11-27",
-    "symbol": "CVNA",
-    "qty": 7,
-    "fill": 70.17,
-    "fill_time": "10:27",
-    "stop": 69.05,
-    "target": 72.41,
-    "max_loss": 7.84,
-    "or_high": 69.63,
-    "or_low": 68.47
-  },
+  "equity": 503.23,
+  "open": null,
   "days": [
     {
       "date": "2026-11-11",
@@ -211,6 +200,24 @@
       "pnl": 2.42,
       "ret_pct": 0.48,
       "equity": 503.93
+    },
+    {
+      "date": "2026-11-27",
+      "symbol": "CVNA",
+      "qty": 7,
+      "fill": 70.17,
+      "fill_time": "10:27",
+      "stop": 69.05,
+      "target": 72.41,
+      "max_loss": 7.84,
+      "or_high": 69.63,
+      "or_low": 68.47,
+      "exit": 70.07,
+      "exit_how": "flat at the last bar",
+      "exit_time": "13:00",
+      "pnl": -0.7,
+      "ret_pct": -0.14,
+      "equity": 503.23
     }
   ]
 }
