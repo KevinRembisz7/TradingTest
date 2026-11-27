@@ -1,7 +1,19 @@
 {
   "start": 500.0,
   "equity": 504.23,
-  "open": null,
+  "open": {
+    "date": "2026-11-27",
+    "symbol": "CVNA",
+    "qty": 6,
+    "fill": 70.17,
+    "fill_time": "10:27",
+    "stop": 69.05,
+    "target": 72.41,
+    "max_loss": 6.72,
+    "or_high": 69.63,
+    "or_low": 68.47,
+    "skipped": []
+  },
   "days": [
     {
       "date": "2026-11-11",

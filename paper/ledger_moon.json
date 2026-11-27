@@ -1,7 +1,20 @@
 {
   "start": 500,
   "equity": 455.68,
-  "open": null,
+  "open": {
+    "date": "2026-11-27",
+    "symbol": "ANF",
+    "qty": 4,
+    "fill": 184.61,
+    "fill_time": "10:27",
+    "stop": 173.54,
+    "target": null,
+    "max_loss": 44.28,
+    "or_high": 183.75,
+    "or_low": 173.55,
+    "leverage": 2.0,
+    "range_pct": 5.88
+  },
   "days": [
     {
       "date": "2026-11-16",
